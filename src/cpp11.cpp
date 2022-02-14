@@ -7,7 +7,7 @@
 
 // code.cpp
 void fun();
-extern "C" SEXP _narrowusingarrowcpp_fun() {
+extern "C" SEXP _testpackageusingarrowcpp_fun() {
   BEGIN_CPP11
     fun();
     return R_NilValue;
@@ -16,12 +16,12 @@ extern "C" SEXP _narrowusingarrowcpp_fun() {
 
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
-    {"_narrowusingarrowcpp_fun", (DL_FUNC) &_narrowusingarrowcpp_fun, 0},
+    {"_testpackageusingarrowcpp_fun", (DL_FUNC) &_testpackageusingarrowcpp_fun, 0},
     {NULL, NULL, 0}
 };
 }
 
-extern "C" attribute_visible void R_init_narrowusingarrowcpp(DllInfo* dll){
+extern "C" attribute_visible void R_init_testpackageusingarrowcpp(DllInfo* dll){
   R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
   R_useDynamicSymbols(dll, FALSE);
   R_forceSymbols(dll, TRUE);

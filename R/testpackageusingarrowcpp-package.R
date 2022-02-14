@@ -2,6 +2,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
-#' @useDynLib narrowusingarrowcpp, .registration = TRUE
+#' @useDynLib testpackageusingarrowcpp, .registration = TRUE
 ## usethis namespace: end
 NULL
