@@ -1,0 +1,12 @@
+Package: narrowusingarrowcpp
+Title: Experimenting With Various Ways to Do Stuff With 'Arrow'
+Version: 0.0.0.9000
+Authors@R: 
+    person("Dewey", "Dunnington", , "dewey@dunnington.ca", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: An experiment to see if 'Arrow' C++ bindings can be vendored
+  into an R package easily.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
