@@ -1,0 +1,48 @@
+
+if [ -f "tools/build/release/libarrow.a" ]; then exit 0; fi
+
+# Find compiler
+CC=`${R_HOME}/bin/R CMD config CC`
+CFLAGS=`${R_HOME}/bin/R CMD config CFLAGS`
+CPPFLAGS=`${R_HOME}/bin/R CMD config CPPFLAGS`
+
+ARROW_DIR=`pwd`/tools/arrow
+ARROW_BUILD_DIR=`pwd`/tools/build
+
+echo
+echo "=="
+echo "== Building Arrow C++ library"
+echo "=="
+echo
+
+mkdir -p $ARROW_BUILD_DIR
+pushd $ARROW_BUILD_DIR
+
+cmake $ARROW_DIR/cpp \
+    -DARROW_BUILD_SHARED=OFF \
+    -DARROW_BUILD_STATIC=ON \
+    -DARROW_COMPUTE=OFF \
+    -DARROW_CSV=OFF \
+    -DARROW_DATASET=OFF \
+    -DARROW_DEPENDENCY_SOURCE=BUNDLED \
+    -DARROW_DEPENDENCY_USE_SHARED=OFF \
+    -DARROW_FILESYSTEM=OFF \
+    -DARROW_HDFS=OFF \
+    -DARROW_JEMALLOC=OFF \
+    -DARROW_JSON=OFF \
+    -DARROW_ORC=OFF \
+    -DARROW_PARQUET=OFF \
+    -DARROW_PLASMA=OFF \
+    -DARROW_WITH_BROTLI=OFF \
+    -DARROW_WITH_BZ2=OFF \
+    -DARROW_WITH_LZ4=OFF \
+    -DARROW_WITH_SNAPPY=OFF \
+    -DARROW_WITH_ZLIB=OFF \
+    -DARROW_WITH_ZSTD=OFF \
+    $ARROW_CMAKE_OPTIONS
+
+make -j8
+
+popd
+
+exit 0

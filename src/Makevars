@@ -1,0 +1,2 @@
+PKG_CPPFLAGS = -I../tools/arrow/cpp/src -I../tools/build/src
+PKG_LIBS = -L../tools/build/release -larrow
